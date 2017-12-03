@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="vendor/styles/app.css">
 </head>
 <body>
+    <div class="wallpaper"></div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-8 col-md-12 col-sm-12">
@@ -60,7 +61,7 @@
                                 <div ng-repeat="clip in vc.getTitleAndDescriptions()">
                                     <li>
                                         <a ng-click="vc.playVideo($index)">
-                                            <span ng-class="{bold:clip.title == vc.current.title}" title="{{clip.description}}">{{clip.title}}</span>
+                                            <spa;activeVideo=0;n ng-class="{bold:clip.title == vc.current.title}" title="{{clip.description}}">{{clip.title}}</span>
                                         </a>
                                     </li>
                                 </div>
@@ -72,43 +73,43 @@
                     </div>                
                 </div>
             </div>
-            <div class="col-sm-12 col-md-4 col-lg-4">
+            <div class="col-sm-12 col-md-12 col-lg-4">
                 <div class="col-sm-12 col-md-12 col-lg-12 col-xl-10">
                     <div class="playlist">    
                         <h4 class="display-4 playlist-title">Course Playlist</h4>
                         <div class="list-group">
-                            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+                            <span ng-click="vc.playVideo(0);activeVideo=0;" ng-class="{'active':activeVideo == 0}" class="playlist-link list-group-item list-group-item-action flex-column align-items-start">
                                 <div class="d-flex w-100 justify-content-between">
                                     <h5 class="mb-1">What is Cryptocurrency?</h5>
                                     <!-- <small>3 days ago</small> -->
                                 </div>
                                 <p class="mb-1">A summary about Cryptocurrency and bitcoin.</p>
                                 <small>#1</small>
-                            </a>
-                            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                            </span>
+                            <span ng-click="vc.playVideo(1);activeVideo=1;" ng-class="{'active':activeVideo == 1}" class="playlist-link list-group-item list-group-item-action flex-column align-items-start">
                                 <div class="d-flex w-100 justify-content-between">
                                     <h5 class="mb-1">Investment options</h5>
                                     <!-- <small class="text-muted">3 days ago</small> -->
                                 </div>
                                 <p class="mb-1">How to profit from Bitcoin? Where to get it?</p>
                                 <small class="text-muted">#2</small>
-                            </a>
-                            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                            </span>
+                            <span ng-click="vc.playVideo(2);activeVideo=2;" ng-class="{'active':activeVideo == 2}" class="playlist-link list-group-item list-group-item-action flex-column align-items-start">
                                 <div class="d-flex w-100 justify-content-between">
                                     <h5 class="mb-1">What is Bitconnect ?</h5>
                                     <!-- <small class="text-muted">3 days ago</small> -->
                                 </div>
                                 <p class="mb-1">Bitconnect Platform - Quick walkthru</p>
                                 <small class="text-muted">#3</small>
-                            </a>
-                            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                            </span>
+                            <span ng-click="vc.playVideo(3);activeVideo=3;" ng-class="{'active':activeVideo == 3}" class="playlist-link list-group-item list-group-item-action flex-column align-items-start">
                                 <div class="d-flex w-100 justify-content-between">
                                     <h5 class="mb-1">How to Invest with Bitconnect ?</h5>
                                     <!-- <small class="text-muted">3 days ago</small> -->
                                 </div>
                                 <p class="mb-1">Pick your Bitconnect strategy investment</p>
                                 <small class="text-muted">#4</small>
-                            </a>
+                            </span>
                         </div>
                     </div>
                 </div>
