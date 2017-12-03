@@ -1,0 +1,22 @@
+{
+  "name": "bitcoin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rockarena/bt.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rockarena/bt/issues"
+  },
+  "homepage": "https://github.com/rockarena/bt#readme",
+  "dependencies": {
+    "angular-ui-bootstrap": "^2.5.6"
+  }
+}
