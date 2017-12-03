@@ -7,73 +7,116 @@
     <title>My AngularJS App</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="vendor/styles/app.css">
     <link rel="stylesheet" href="vendor/styles/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/styles/app.css">
 </head>
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-12">
-                <div class="card" style="max-width:576px;margin:0 auto">
-                    <h4 class="card-header text-center"> How To Invest Into Cryptocurrency
-                        <br/><span class="card-title">{{vc.current.title}} ({{vc.current.duration | period}})</span>
-                    </h4>
-                    
-                    <div class="card-img-top" style="min-height:500px;"alt="Card image cap"> 
-                        <nimbus-youtube-player target="myPlayer" width="100%" height="500px;">
-                            <nimbus-playlist>
-                                <entry mbody="body1" id="hEJnMQG9ev8" title="Mad Max" description="Mad Max: Fury Road is a 2015 action film directed and
-                                produced by George Miller. It is set in a future desert wasteland where gasoline
-                                and water are scarce commodities."></entry>
-                                <entry mbody="body2" id="sGbxmsDFVnE" title="Star Wars: The Force awakens" description="Approximately 30 years after the second
-                                Death Star was destroyed, Luke Skywalker, the last Jedi, has disappeared. The First Order has risen from the
-                                fallen Galactic Empire and seeks to eliminate Luke and the New Republic. The Resistance, backed by the New
-                                Republic and led by Luke's twin sister, Leia Organa, opposes them while searching for Luke to enlist his aid."></entry>
-                                <entry mbody="body3" id="zSWdZVtXT7E" title="Interstellar" description="A widespread catastrophic crop blight on Earth has made
-                                farming increasingly difficult and threatens the existence of humanity. Joe Cooper, a widowed former NASA pilot,
-                                runs a farm with his father-in-law, son, and daughter Murphy, who believes her bedroom is haunted by a poltergeist.
-                                When the 'ghost' creates a pattern of dust on the floor, Cooper realizes an unknown intelligence is using
-                                gravity to communicate, and interprets the pattern as geographic coordinates, which Cooper and Murphy follow to a secret NASA facility."></entry>
-                                <entry mbody="body4" id="S3AVcCggRnU" title="Ted 2" description="Newlywed couple Ted and Tami-Lynn want to have a baby, but in
-                                order to qualify to be a parent, Ted will have to prove he's a person in a court of law."></entry>
-                            </nimbus-playlist>
-                            <div id="myPlayer"></div>
-                            <button class="btn btn-dark m10px" ng-click="vc.playPrev()">Prev</button>
-                            <button class="btn btn-dark fright m10px" ng-click="vc.playNext()">Next</button>                                                                                
-                        </nimbus-youtube-player>
-                    </div>
-                    <div class="card-body">
-                        <div ng-if="vc.current.mbody == 'body1'">
-                            <body1></body1>
+            <div class="col-lg-8 col-md-12 col-sm-12">
+                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-11" style="float:right">
+                    <div class="card" style="float:right">
+                        <h4 class="card-header text-center display-4"> How To Invest Into Cryptocurrency
+                            <!-- <br/><span class="card-title">{{vc.current.title}} ({{vc.current.duration | period}})</span> -->
+                        </h4>
+                        
+                        <div class="card-img-top" alt="Card image cap"> 
+                            <nimbus-youtube-player target="myPlayer" width="100%" height="500px;">
+                                <nimbus-playlist>
+                                    <entry mbody="body1" id="hEJnMQG9ev8" title="Mad Max" description="Mad Max: Fury Road is a 2015 action film directed and
+                                    produced by George Miller. It is set in a future desert wasteland where gasoline
+                                    and water are scarce commodities."></entry>
+                                    <entry mbody="body2" id="sGbxmsDFVnE" title="Star Wars: The Force awakens" description="Approximately 30 years after the second
+                                    Death Star was destroyed, Luke Skywalker, the last Jedi, has disappeared. The First Order has risen from the
+                                    fallen Galactic Empire and seeks to eliminate Luke and the New Republic. The Resistance, backed by the New
+                                    Republic and led by Luke's twin sister, Leia Organa, opposes them while searching for Luke to enlist his aid."></entry>
+                                    <entry mbody="body3" id="zSWdZVtXT7E" title="Interstellar" description="A widespread catastrophic crop blight on Earth has made
+                                    farming increasingly difficult and threatens the existence of humanity. Joe Cooper, a widowed former NASA pilot,
+                                    runs a farm with his father-in-law, son, and daughter Murphy, who believes her bedroom is haunted by a poltergeist.
+                                    When the 'ghost' creates a pattern of dust on the floor, Cooper realizes an unknown intelligence is using
+                                    gravity to communicate, and interprets the pattern as geographic coordinates, which Cooper and Murphy follow to a secret NASA facility."></entry>
+                                    <entry mbody="body4" id="S3AVcCggRnU" title="Ted 2" description="Newlywed couple Ted and Tami-Lynn want to have a baby, but in
+                                    order to qualify to be a parent, Ted will have to prove he's a person in a court of law."></entry>
+                                </nimbus-playlist>
+                                <div id="myPlayer"></div>
+                                <button class="btn btn-dark m10px" ng-click="vc.playPrev()">Prev</button>
+                                <button class="btn btn-dark fright m10px" ng-click="vc.playNext()">Next</button>                                                                                
+                            </nimbus-youtube-player>
                         </div>
-                        <div ng-if="vc.current.mbody == 'body2'">
-                            <body2></body2>
-                        </div>
-                        <div ng-if="vc.current.mbody == 'body3'">
-                            <body3></body3>
-                        </div>
-                        <div ng-if="vc.current.mbody == 'body4'">
-                            <body4></body4>
-                        </div>
-                        <ul>
-                            <div ng-repeat="clip in vc.getTitleAndDescriptions()">
-                                <li>
-                                    <a ng-click="vc.playVideo($index)">
-                                        <span ng-class="{bold:clip.title == vc.current.title}" title="{{clip.description}}">{{clip.title}}</span>
-                                    </a>
-                                </li>
+                        <div class="card-body">
+                            <div ng-if="vc.current.mbody == 'body1'">
+                                <body1></body1>
                             </div>
-                        </ul>
-                        
-                        <p class="text-small">{{vc.current.description}}</p>
-                        
+                            <div ng-if="vc.current.mbody == 'body2'">
+                                <body2></body2>
+                            </div>
+                            <div ng-if="vc.current.mbody == 'body3'">
+                                <body3></body3>
+                            </div>
+                            <div ng-if="vc.current.mbody == 'body4'">
+                                <body4></body4>
+                            </div>
+                            <ul>
+                                <div ng-repeat="clip in vc.getTitleAndDescriptions()">
+                                    <li>
+                                        <a ng-click="vc.playVideo($index)">
+                                            <span ng-class="{bold:clip.title == vc.current.title}" title="{{clip.description}}">{{clip.title}}</span>
+                                        </a>
+                                    </li>
+                                </div>
+                            </ul>
+                            
+                            <p class="text-small">{{vc.current.description}}</p>
+                            
+                        </div>
+                    </div>                
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-4 col-lg-4">
+                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-10">
+                    <div class="playlist">    
+                        <h4 class="display-4 playlist-title">Course Playlist</h4>
+                        <div class="list-group">
+                            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">What is Cryptocurrency?</h5>
+                                    <!-- <small>3 days ago</small> -->
+                                </div>
+                                <p class="mb-1">A summary about Cryptocurrency and bitcoin.</p>
+                                <small>#1</small>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">Investment options</h5>
+                                    <!-- <small class="text-muted">3 days ago</small> -->
+                                </div>
+                                <p class="mb-1">How to profit from Bitcoin? Where to get it?</p>
+                                <small class="text-muted">#2</small>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">What is Bitconnect ?</h5>
+                                    <!-- <small class="text-muted">3 days ago</small> -->
+                                </div>
+                                <p class="mb-1">Bitconnect Platform - Quick walkthru</p>
+                                <small class="text-muted">#3</small>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">How to Invest with Bitconnect ?</h5>
+                                    <!-- <small class="text-muted">3 days ago</small> -->
+                                </div>
+                                <p class="mb-1">Pick your Bitconnect strategy investment</p>
+                                <small class="text-muted">#4</small>
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <script src="vendor/js/angular.min.js"></script>
-                <script src="vendor/js/nimbusYoutubeLibrary-0.0.7.js"></script>
-                <script src="app.js"></script>
             </div>
         </div>
     </div>
+    <script src="vendor/js/angular.min.js"></script>
+    <script src="vendor/js/nimbusYoutubeLibrary-0.0.7.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
