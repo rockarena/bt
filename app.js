@@ -3,5 +3,31 @@
 // Declare app level module which depends on views, and components
 angular.module('myApp', [
     'nimbusYoutubeLibrary'
-]);
+])
+
+.directive('body1', function () {
+    return {
+        restrict: 'E',
+        template: '<div>yoyoyoy1</div>'
+    }
+})
+.directive('body2', function () {
+    return {
+        restrict: 'E',
+        template: '<div>yoyoyoy2</div>'
+    }
+})
+.directive('body3', function () {
+    return {
+        restrict: 'E',
+        template: '<div>yoyoyoy3</div>'
+    }
+})
+.directive('body4', function () {
+    return {
+        restrict: 'E',
+        template: '<div>yoyoyoy4</div>'
+    }
+})
+
 
