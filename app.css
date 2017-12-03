@@ -1,0 +1,13 @@
+/* app css stylesheet */
+
+.bold {
+  font-weight: bold;
+}
+
+a {
+    color: black;
+}
+
+a :hover {
+    color: dodgerblue;
+}

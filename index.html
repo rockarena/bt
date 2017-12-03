@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7" ng-strict-di> <![endif]-->
+<!--[if IE 7]>
+<html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8" ng-strict-di> <![endif]-->
+<!--[if IE 8]>
+<html lang="en" ng-app="myApp" class="no-js lt-ie9" ng-strict-di> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="myApp" class="no-js" ng-strict-di> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My AngularJS App</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+<nimbus-youtube-player target="myPlayer" width="800" height="400">
+    <nimbus-playlist>
+        <entry id="hEJnMQG9ev8" title="Mad Max" description="Mad Max: Fury Road is a 2015 action film directed and
+        produced by George Miller. It is set in a future desert wasteland where gasoline
+        and water are scarce commodities."></entry>
+        <entry id="sGbxmsDFVnE" title="Star Wars: The Force awakens" description="Approximately 30 years after the second
+        Death Star was destroyed, Luke Skywalker, the last Jedi, has disappeared. The First Order has risen from the
+        fallen Galactic Empire and seeks to eliminate Luke and the New Republic. The Resistance, backed by the New
+        Republic and led by Luke's twin sister, Leia Organa, opposes them while searching for Luke to enlist his aid."></entry>
+        <entry id="zSWdZVtXT7E" title="Interstellar" description="A widespread catastrophic crop blight on Earth has made
+        farming increasingly difficult and threatens the existence of humanity. Joe Cooper, a widowed former NASA pilot,
+        runs a farm with his father-in-law, son, and daughter Murphy, who believes her bedroom is haunted by a poltergeist.
+        When the 'ghost' creates a pattern of dust on the floor, Cooper realizes an unknown intelligence is using
+        gravity to communicate, and interprets the pattern as geographic coordinates, which Cooper and Murphy follow to a secret NASA facility."></entry>
+        <entry id="S3AVcCggRnU" title="Ted 2" description="Newlywed couple Ted and Tami-Lynn want to have a baby, but in
+        order to qualify to be a parent, Ted will have to prove he's a person in a court of law."></entry>
+    </nimbus-playlist>
+    <div id="myPlayer"></div>
+    <p><b>Playing Now:</b>{{vc.current.title}} ({{vc.current.duration | period}})</p>
+    <p class="text-small">{{vc.current.description}}</p>
+
+    <button ng-click="vc.playPrev()">Prev</button>
+    <button ng-click="vc.playNext()">Next</button>
+    <ul>
+        <div ng-repeat="clip in vc.getTitleAndDescriptions()">
+              <li><a ng-click="vc.playVideo($index)">
+                  <span ng-class="{bold:clip.title == vc.current.title}" title="{{clip.description}}">{{clip.title}}</span>
+              </a></li>
+        </div>
+    </ul>
+</nimbus-youtube-player>
+
+
+
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+
+<script src="vendor/angular/angular.js"></script>
+<!--<script src="../src/youtube-library/youtube-library-module.js"></script>-->
+<!--<script src="../src/youtube-library/youtubeService.js"></script>-->
+<!--<script src="../src/youtube-library/playlist-controller.js"></script>-->
+<!--<script src="../src/youtube-library/youtube-player-directive.js"></script>-->
+<!--<script src="../src/youtube-library/periodFilter.js"></script>-->
+<script src="vendor/nimbusYoutubeLibrary-0.0.7.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
