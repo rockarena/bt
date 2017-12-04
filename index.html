@@ -2,13 +2,16 @@
 
 <html lang="en" ng-app="myApp" class="no-js" ng-strict-di> <!--<![endif]-->
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>My AngularJS App</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="vendor/styles/open-iconic-bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="vendor/styles/bootstrap.min.css">
     <link rel="stylesheet" href="vendor/styles/app.css">
+
 </head>
 <body>
     <div class="wallpaper"></div>
@@ -21,7 +24,7 @@
                             <!-- <br/><span class="card-title">{{vc.current.title}} ({{vc.current.duration | period}})</span> -->
                         </h4>
                         
-                        <div class="card-img-top" alt="Card image cap"> 
+                        <div class="card-img-top" id="videoWindow" alt="Card image cap"> 
                             <nimbus-youtube-player target="myPlayer" width="100%" height="500px;">
                                 <nimbus-playlist>
                                     <entry mbody="body1" id="hEJnMQG9ev8" title="Mad Max" description="Mad Max: Fury Road is a 2015 action film directed and
@@ -40,8 +43,13 @@
                                     order to qualify to be a parent, Ted will have to prove he's a person in a court of law."></entry>
                                 </nimbus-playlist>
                                 <div id="myPlayer"></div>
-                                <button class="btn btn-dark m10px" ng-click="vc.playPrev()">Prev</button>
-                                <button class="btn btn-dark fright m10px" ng-click="vc.playNext()">Next</button>                                                                                
+                                <button class="btn btn-lg btn-dark m10px" ng-click="vc.playPrev()">
+                                    <span class="oi oi-media-step-backward"></span>
+                                    <div class="media-button-left">prev</div>
+                                </button>
+                                <button class="btn btn-lg btn-dark fright m10px" ng-click="vc.playNext()">
+                                    <div class="media-button-right">next</div>
+                                    <span class="oi oi-media-step-forward"></span></button>                                                                                
                             </nimbus-youtube-player>
                         </div>
                         <div class="card-body">
@@ -61,7 +69,7 @@
                                 <div ng-repeat="clip in vc.getTitleAndDescriptions()">
                                     <li>
                                         <a ng-click="vc.playVideo($index)">
-                                            <spa;activeVideo=0;n ng-class="{bold:clip.title == vc.current.title}" title="{{clip.description}}">{{clip.title}}</span>
+                                            <span ng-class="{bold:clip.title == vc.current.title}" title="{{clip.description}}">{{clip.title}}</span>
                                         </a>
                                     </li>
                                 </div>
@@ -75,10 +83,10 @@
             </div>
             <div class="col-sm-12 col-md-12 col-lg-4">
                 <div class="col-sm-12 col-md-12 col-lg-12 col-xl-10">
-                    <div class="playlist">    
+                    <div class="playlist" ng-controller='main'>    
                         <h4 class="display-4 playlist-title">Course Playlist</h4>
                         <div class="list-group" ng-init="activeVideo=0;">
-                            <span ng-click="vc.playVideo(0);activeVideo=0;" ng-class="{'active':activeVideo == 0}" class="playlist-link list-group-item list-group-item-action flex-column align-items-start">
+                            <span ng-click="playlistClick(0)" ng-class="{'active':activeVideo == 0}" class="playlist-link list-group-item list-group-item-action flex-column align-items-start">
                                 <div class="d-flex w-100 justify-content-between">
                                     <h5 class="mb-1">What is Cryptocurrency?</h5>
                                     <!-- <small>3 days ago</small> -->
@@ -86,7 +94,7 @@
                                 <p class="mb-1">A summary about Cryptocurrency and bitcoin.</p>
                                 <small>#1</small>
                             </span>
-                            <span ng-click="vc.playVideo(1);activeVideo=1;" ng-class="{'active':activeVideo == 1}" class="playlist-link list-group-item list-group-item-action flex-column align-items-start">
+                            <span ng-click="playlistClick(1)" ng-class="{'active':activeVideo == 1}" class="playlist-link list-group-item list-group-item-action flex-column align-items-start">
                                 <div class="d-flex w-100 justify-content-between">
                                     <h5 class="mb-1">Investment options</h5>
                                     <!-- <small class="text-muted">3 days ago</small> -->
@@ -94,7 +102,7 @@
                                 <p class="mb-1">How to profit from Bitcoin? Where to get it?</p>
                                 <small class="text-muted">#2</small>
                             </span>
-                            <span ng-click="vc.playVideo(2);activeVideo=2;" ng-class="{'active':activeVideo == 2}" class="playlist-link list-group-item list-group-item-action flex-column align-items-start">
+                            <span ng-click="playlistClick(2)" ng-class="{'active':activeVideo == 2}" class="playlist-link list-group-item list-group-item-action flex-column align-items-start">
                                 <div class="d-flex w-100 justify-content-between">
                                     <h5 class="mb-1">What is Bitconnect ?</h5>
                                     <!-- <small class="text-muted">3 days ago</small> -->
@@ -102,7 +110,7 @@
                                 <p class="mb-1">Bitconnect Platform - Quick walkthru</p>
                                 <small class="text-muted">#3</small>
                             </span>
-                            <span ng-click="vc.playVideo(3);activeVideo=3;" ng-class="{'active':activeVideo == 3}" class="playlist-link list-group-item list-group-item-action flex-column align-items-start">
+                            <span ng-click="playlistClick(3);" ng-class="{'active':activeVideo == 3}" class="playlist-link list-group-item list-group-item-action flex-column align-items-start">
                                 <div class="d-flex w-100 justify-content-between">
                                     <h5 class="mb-1">How to Invest with Bitconnect ?</h5>
                                     <!-- <small class="text-muted">3 days ago</small> -->
@@ -118,6 +126,7 @@
     </div>
     <script src="vendor/js/angular.min.js"></script>
     <script src="vendor/js/nimbusYoutubeLibrary-0.0.7.js"></script>
+    <script src="vendor/js/jquery-3.2.1.min.js"></script>
     <script src="app.js"></script>
 </body>
 </html>

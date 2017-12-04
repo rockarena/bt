@@ -28,6 +28,12 @@ angular.module('myApp', [
         restrict: 'E',
         template: '<div>yoyoyoy4</div>'
     }
-})
+}).controller('main',['$scope',function ($scope) {
+    $scope.playlistClick = function(n){
+        $scope.vc.playVideo(n); 
+        $scope.activeVideo = n;
+        $('html,body').animate({ scrollTop: $('#videoWindow').offset().top }, 'slow');
+    }
+}])
 
 
