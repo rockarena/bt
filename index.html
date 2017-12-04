@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="vendor/styles/app.css">
 
 </head>
-<body>
+<body ng-controller='main'>
     <div class="wallpaper"></div>
     <div class="container-fluid">
         <div class="row">
@@ -43,11 +43,14 @@
                                     order to qualify to be a parent, Ted will have to prove he's a person in a court of law."></entry>
                                 </nimbus-playlist>
                                 <div id="myPlayer"></div>
-                                <button class="btn btn-lg btn-dark m10px" ng-click="vc.playPrev()">
+                                <button class="btn btn-lg btn-dark m10px" 
+                                    ng-class="{'disabled' : activeVideo == 0}" ng-click="playVideo('prev')">
                                     <span class="oi oi-media-step-backward"></span>
                                     <div class="media-button-left">prev</div>
                                 </button>
-                                <button class="btn btn-lg btn-dark fright m10px" ng-click="vc.playNext()">
+                                <button class="btn btn-lg btn-dark fright m10px" 
+                                 ng-class="{'disabled' : activeVideo == 3}"
+                                ng-click="playVideo('next')">
                                     <div class="media-button-right">next</div>
                                     <span class="oi oi-media-step-forward"></span></button>                                                                                
                             </nimbus-youtube-player>
@@ -83,7 +86,7 @@
             </div>
             <div class="col-sm-12 col-md-12 col-lg-4">
                 <div class="col-sm-12 col-md-12 col-lg-12 col-xl-10">
-                    <div class="playlist" ng-controller='main'>    
+                    <div class="playlist">    
                         <h4 class="display-4 playlist-title">Course Playlist</h4>
                         <div class="list-group" ng-init="activeVideo=0;">
                             <span ng-click="playlistClick(0)" ng-class="{'active':activeVideo == 0}" class="playlist-link list-group-item list-group-item-action flex-column align-items-start">
@@ -91,7 +94,7 @@
                                     <h5 class="mb-1">What is Cryptocurrency?</h5>
                                     <!-- <small>3 days ago</small> -->
                                 </div>
-                                <p class="mb-1">A summary about Cryptocurrency and bitcoin.</p>
+                                <p class="mb-1">A quick explanation about Cryptocurrency and bitcoin.</p>
                                 <small>#1</small>
                             </span>
                             <span ng-click="playlistClick(1)" ng-class="{'active':activeVideo == 1}" class="playlist-link list-group-item list-group-item-action flex-column align-items-start">

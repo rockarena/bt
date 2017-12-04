@@ -34,6 +34,15 @@ angular.module('myApp', [
         $scope.activeVideo = n;
         $('html,body').animate({ scrollTop: $('#videoWindow').offset().top }, 'slow');
     }
+    $scope.playVideo = function (where) {
+        if (where == 'next' && $scope.activeVideo < 3){
+            $scope.activeVideo ++;
+            $scope.vc.playNext();
+        } else if (where == 'prev' && $scope.activeVideo > 0 ){
+            $scope.activeVideo--;
+            $scope.vc.playPrev();
+        }
+    }
 }])
 
 
